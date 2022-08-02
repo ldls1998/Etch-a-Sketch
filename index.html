@@ -7,16 +7,20 @@
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <script src="/assets/js/js.js" defer></script>
 </head>
 
 <body>
-    <div>
+    <header>
         <h1 style="text-align: center;">Etch-a-Sketch</h1>
-    </div>
+    </header>
     <main class="contenedor">
         <div class="botones">
-            <button id="colorBtn" class="btn btn-primary">Color</button>
+            <input type="color" id="color" class="color" value="#000000">
             <button id="arcoirisBtn" class="btn btn-primary">Arcoiris</button>
             <button id="pincelBtn" class="btn btn-primary">Pincel</button>
             <button id="borradorBtn" class="btn btn-primary">Borrador</button>
