@@ -24,6 +24,12 @@ h1 {
     margin: 20px;
 }
 
+.color {
+    margin: 20px;
+    height: 35px;
+    width: auto;
+}
+
 .grid {
     display: flex;
 }
@@ -38,8 +44,5 @@ h1 {
     border: 1px solid black;
     height: 10px;
     flex: 1;
-}
-
-.cuadrado:hover {
-    background-color: black;
+    background-color: white;
 }
