@@ -1,48 +1,56 @@
 body {
-    padding: 20px;
-    background-color: rgb(43, 41, 41);
+  padding: 20px;
+  background-color: rgb(43, 41, 41);
 }
 
 h1 {
-    padding-bottom: 20px;
-    color: white;
+  padding-bottom: 20px;
+  color: white;
 }
 
 .contenedor {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .botones {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .btn-primary {
-    padding: 10px;
-    margin: 20px;
+  padding: 10px;
+  margin: 20px;
 }
 
 .color {
-    margin: 20px;
-    height: 35px;
-    width: auto;
+  margin: 20px;
+  height: 35px;
+  width: auto;
 }
 
 .grid {
-    display: flex;
+  display: flex;
+  width: 500px;
+  height: 500px;
 }
 
 .fila {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
 }
 
 .cuadrado {
-    width: 25px;
-    border: 1px solid black;
-    height: 10px;
-    flex: 1;
-    background-color: white;
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid rgb(223, 222, 222);
+  background-color: white;
+}
+
+p {
+  color: white;
+  text-align: center;
+  font-size: medium;
 }

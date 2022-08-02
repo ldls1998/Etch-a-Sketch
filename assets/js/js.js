@@ -1,4 +1,4 @@
-let numAncho = 16;
+let gridSize = 16;
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
@@ -6,16 +6,26 @@ arcoiris = false;
 
 // Dibujar cuadrados
 var grid = document.querySelector('.grid');
-for (let i = 0; i < numAncho; i++) {
-    fila = document.createElement('div');
-    fila.classList.add('fila');
-    grid.appendChild(fila);
-    for (let j = 0; j < numAncho; j++) {
-        var cuadrado = document.createElement("div");
-        cuadrado.classList.add('cuadrado');
-        cuadrado.addEventListener('mousedown', cambiarColor)
-        cuadrado.addEventListener('mouseover', cambiarColor)
-        fila.appendChild(cuadrado);
+document.addEventListener("DOMContentLoaded", gridLoad);
+function gridLoad() {
+    for (let i = 0; i < gridSize; i++) {
+        fila = document.createElement('div');
+        fila.classList.add('fila');
+        grid.appendChild(fila);
+        for (let j = 0; j < gridSize; j++) {
+            var cuadrado = document.createElement("div");
+            cuadrado.classList.add('cuadrado');
+            cuadrado.addEventListener('mousedown', cambiarColor)
+            cuadrado.addEventListener('mouseover', cambiarColor)
+            fila.appendChild(cuadrado);
+        }
+    }
+}
+
+function limpiarGrid() {
+    var node = document.querySelector('.grid');
+    while (node.hasChildNodes()) {
+        node.removeChild(node.firstChild);
     }
 }
 
@@ -47,6 +57,7 @@ var btnLimpiar = document.querySelector("#limpiarBtn");
 btnLimpiar.addEventListener("click", limpiar);
 
 function limpiar(event) {
+    var cuadrados = document.querySelectorAll('.cuadrado'); 
     cuadrados.forEach(cuadrado => {
         cuadrado.style.backgroundColor = "white";
     })
@@ -65,7 +76,7 @@ btnArcoiris.addEventListener("click", (event) => {
     arcoiris = true;
 })
 
-function getRandomColor() {
+function getRandomColor() { // Generar color aleatorio
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
@@ -73,3 +84,11 @@ function getRandomColor() {
     }
     return color;
 }
+
+var sliderGridSize = document.getElementById("myRange");
+sliderGridSize.addEventListener("input", (event) => {
+    gridSize = sliderGridSize.value;
+    document.querySelector(".grid-size").textContent = gridSize + " x " + gridSize;
+    limpiarGrid();
+    gridLoad();
+})
