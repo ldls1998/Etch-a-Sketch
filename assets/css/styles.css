@@ -1,9 +1,16 @@
 body {
     padding: 20px;
+    background-color: rgb(43, 41, 41);
 }
+
+h1 {
+    padding-bottom: 20px;
+    color: white;
+}
+
 .contenedor {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .botones {
@@ -17,10 +24,22 @@ body {
     margin: 20px;
 }
 
-.cuadrado {
-    width: 100px;
-    border: 1px solid red;
-    height: 100px;
+.grid {
     display: flex;
-    ;
+}
+
+.fila {
+    display: flex;
+    flex-direction: column;
+}
+
+.cuadrado {
+    width: 25px;
+    border: 1px solid black;
+    height: 10px;
+    flex: 1;
+}
+
+.cuadrado:hover {
+    background-color: black;
 }
