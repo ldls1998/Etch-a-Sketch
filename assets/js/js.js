@@ -1,4 +1,7 @@
 let numAncho = 16;
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 // Dibujar cuadrados
 var grid = document.querySelector('.grid');
@@ -10,30 +13,19 @@ for (let i = 0; i < numAncho; i++) {
         var cuadrado = document.createElement("div");
         cuadrado.classList.add('cuadrado');
         fila.appendChild(cuadrado);
+        cuadrado.addEventListener('mousedown', cambiarColor)
+        cuadrado.addEventListener('mouseover', cambiarColor)
     }
 }
 
 // Seleccionar color
 var color = document.querySelector(".color");
 var colorPredeterminado = "#000000";
-
-window.addEventListener("load", startup, false);
-
-function startup() { // evento que se ejecuta cuando se carga la pagina
-    color.addEventListener("change", watchColorPicker);
-    color.value = colorPredeterminado;
-}
-
+color.value = colorPredeterminado;
 var cuadrados = document.querySelectorAll('.cuadrado'); // seleccionar todos los cuadrados
 
-function watchColorPicker(event) { // evento que se ejecuta cuando cambia el color
-    console.log(event.target.value)
-    cuadrados.forEach(cuadrado => {
-        cuadrado.addEventListener('mouseover', cambiarColor)
-    });
-}
-
-function cambiarColor(event) { 
+function cambiarColor(event) {
+    if (!mouseDown) return;
     event.target.style.backgroundColor = color.value;
 }
 
@@ -55,4 +47,15 @@ btnBorrador.addEventListener("click", (event) => {
 
 // Botón Arcoiris
 var btnArcoiris = document.querySelector("#arcoirisBtn");
+btnArcoiris.addEventListener("click", (event) => {
+    color.value = getRandomColor();
+})
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
